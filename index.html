@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>David Camelo — Data Analyst Portfolio</title>
+<meta name="description" content="David Camelo — Data Analyst & Industrial Engineer. Power BI, Tableau and Looker Studio dashboard portfolio.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header">
+  <div class="wrap header-row">
+    <a class="brand" href="#top">David&nbsp;Camelo</a>
+    <nav class="langs" aria-label="Languages spoken">
+      <span class="lang-key">Languages</span>
+      <span class="lang-chip">ES</span>
+      <span class="lang-chip">EN</span>
+      <span class="lang-chip">PT</span>
+    </nav>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section id="top" class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <p class="hero-kicker">Data Analyst · Industrial Engineer</p>
+      <h1>I turn structured data into decisions people can act on.</h1>
+      <p class="hero-lede">
+        I'm David Camelo, a trilingual Industrial Engineer who designs intuitive, clear and
+        accessible dashboards for any audience. I take a holistic approach — integrating
+        technical and business perspectives — to build high-impact Business Intelligence
+        solutions and data stories that improve decision-making.
+      </p>
+      <p class="hero-lede">
+        Throughout my career I've learned to approach problems from multiple angles, so that
+        both technical and functional requirements land in practical, usable solutions. My
+        strength is converting raw data into interactive, user-friendly dashboards.
+      </p>
+    </div>
+
+    <aside class="legend" aria-label="Tools and skills">
+      <p class="legend-title">Toolkit</p>
+      <ul class="legend-list">
+        <li><span class="swatch swatch--a"></span>Power BI</li>
+        <li><span class="swatch swatch--b"></span>Tableau</li>
+        <li><span class="swatch swatch--c"></span>Looker Studio</li>
+      </ul>
+      <p class="legend-title legend-title--secondary">Technical</p>
+      <ul class="legend-list legend-list--plain">
+        <li>SQL</li>
+        <li>Python</li>
+        <li>R</li>
+      </ul>
+    </aside>
+  </div>
+</section>
+
+<!-- ============ PORTFOLIO ============ -->
+<section class="portfolio" id="portfolio">
+  <div class="wrap">
+    <p class="section-kicker">Welcome to my dashboard portfolio</p>
+
+    <!-- Tab controls -->
+    <div class="tabs" role="tablist" aria-label="Dashboard tools">
+      <button class="tab-btn is-active" role="tab" aria-selected="true" aria-controls="panel-powerbi" id="tab-powerbi" data-tab="powerbi">
+        Power BI
+      </button>
+      <button class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-tableau" id="tab-tableau" data-tab="tableau" tabindex="-1">
+        Tableau
+      </button>
+    </div>
+
+    <!-- ===== Power BI panel ===== -->
+    <div class="tab-panel is-active" id="panel-powerbi" role="tabpanel" aria-labelledby="tab-powerbi">
+
+      <article class="project">
+        <div class="project-head">
+          <h2>Colombian Toll Analysis</h2>
+          <p>
+            Roadway toll analysis about paid transport over these stations. Data imported
+            from <a href="https://datos.gov.co/" target="_blank" rel="noopener">datos.gov.co</a>.
+            This report is version-controlled as a Power BI project file — repo here:
+            <a href="https://github.com/DavidNCamelo/PowerBI-projects/tree/test_pbir" target="_blank" rel="noopener">
+              github.com/DavidNCamelo/PowerBI-projects
+            </a>.
+          </p>
+        </div>
+        <!-- EMBED: paste your Power BI <iframe> inside this div -->
+        <div class="embed-frame" data-embed="powerbi-toll">
+          <p class="embed-placeholder">Embed goes here — paste your Power BI iframe.</p>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="project-head">
+          <h2>Colombian Passengers Analysis</h2>
+          <p>
+            Roadway passenger transport across Colombian territory. Data imported from
+            <a href="https://datos.gov.co/" target="_blank" rel="noopener">datos.gov.co</a>.
+          </p>
+        </div>
+        <div class="embed-frame" data-embed="powerbi-passengers">
+          <p class="embed-placeholder">Embed goes here — paste your Power BI iframe.</p>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="project-head">
+          <h2>Olympic Games</h2>
+          <p>
+            Combining a web-scraping workflow with a personal curiosity for the Olympics,
+            this report summarizes the Games' evolution since the first recorded event.
+            Source scripts are published at
+            <a href="https://github.com/DavidNCamelo/Olympic-Games-DataScraping" target="_blank" rel="noopener">
+              github.com/DavidNCamelo/Olympic-Games-DataScraping
+            </a>
+            — best refreshed just before the next Olympic event.
+          </p>
+        </div>
+        <div class="embed-frame" data-embed="powerbi-olympics">
+          <p class="embed-placeholder">Embed goes here — paste your Power BI iframe.</p>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="project-head">
+          <h2>Airbnb Research</h2>
+          <p>
+            Is gentrification a pattern? Is there a relationship between short-term
+            reservations and this kind of platform? There's no firm answer here — researching
+            Medellín's Airbnb distribution was an interesting personal project with a friend.
+          </p>
+        </div>
+        <div class="embed-frame" data-embed="powerbi-airbnb">
+          <p class="embed-placeholder">Embed goes here — paste your Power BI iframe.</p>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- ===== Tableau panel ===== -->
+    <div class="tab-panel" id="panel-tableau" role="tabpanel" aria-labelledby="tab-tableau" hidden>
+
+      <article class="project">
+        <div class="project-head">
+          <h2>Happiness and Socioeconomics Analysis</h2>
+          <p>
+            Comparing happiness around the world against the socioeconomic situation of each
+            region, based on a range of characteristics.
+          </p>
+        </div>
+        <div class="embed-frame" data-embed="tableau-happiness">
+          <p class="embed-placeholder">Embed goes here — paste your Tableau iframe.</p>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="project-head">
+          <h2>Lead and Ecommerce Behavior</h2>
+          <p>
+            Analysing the two-step marketing funnel of a sample company (Olist) to understand
+            the behavior behind Marketing Qualified Leads (MQL).
+          </p>
+        </div>
+        <div class="embed-frame" data-embed="tableau-ecommerce">
+          <p class="embed-placeholder">Embed goes here — paste your Tableau iframe.</p>
+        </div>
+      </article>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="wrap footer-row">
+    <p>David Camelo — Data Analyst</p>
+    <ul class="footer-links">
+      <li><a href="https://github.com/DavidNCamelo" target="_blank" rel="noopener">GitHub</a></li>
+      <!-- Add LinkedIn / email / other links here -->
+    </ul>
+  </div>
+</footer>
+
+<script src="assets/script.js"></script>
+</body>
+</html>
