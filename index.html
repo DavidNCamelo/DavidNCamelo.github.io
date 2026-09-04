@@ -621,11 +621,11 @@ h1, h2{
 // Tab switching for the dashboard portfolio (Power BI / Tableau)
 document.addEventListener('DOMContentLoaded', () => {
   const tabButtons = document.querySelectorAll('.tab-btn');
-
+ 
   tabButtons.forEach(btn => {
     btn.addEventListener('click', () => {
       const targetId = 'panel-' + btn.dataset.tab;
-
+ 
       // Reset all tabs
       tabButtons.forEach(b => {
         b.classList.remove('is-active');
@@ -636,19 +636,59 @@ document.addEventListener('DOMContentLoaded', () => {
         panel.classList.remove('is-active');
         panel.hidden = true;
       });
-
+ 
       // Activate selected tab
       btn.classList.add('is-active');
       btn.setAttribute('aria-selected', 'true');
       btn.tabIndex = 0;
-
+ 
       const targetPanel = document.getElementById(targetId);
       targetPanel.classList.add('is-active');
       targetPanel.hidden = false;
+ 
+      // Tableau vizzes in a panel that was hidden at load time can end up
+      // with a 0×0 size reading; re-measure now that it's visible.
+      sizeTableauVizzes();
     });
   });
 });
-
+ 
+// ---------------------------------------------------------------
+// Tableau's <tableau-viz> web component does not respond to CSS
+// width/height (percentages, flex, grid) — it only sizes itself
+// from its width/height attributes, in pixels. We measure each
+// embed-frame and push its pixel size into the viz element, then
+// keep it in sync on resize.
+// ---------------------------------------------------------------
+function sizeTableauVizzes(){
+  document.querySelectorAll('.embed-frame--tableau').forEach(frame => {
+    const viz = frame.querySelector('tableau-viz');
+    if (!viz) return;
+    const rect = frame.getBoundingClientRect();
+    if (rect.width === 0 || rect.height === 0) return; // panel still hidden
+    viz.width = `${Math.round(rect.width)}px`;
+    viz.height = `${Math.round(rect.height)}px`;
+  });
+}
+ 
+function debounce(fn, wait){
+  let t;
+  return (...args) => {
+    clearTimeout(t);
+    t = setTimeout(() => fn(...args), wait);
+  };
+}
+ 
+// Size once the custom element is registered and ready, then keep
+// it correct across viewport / layout changes.
+if (window.customElements) {
+  customElements.whenDefined('tableau-viz').then(sizeTableauVizzes);
+} else {
+  window.addEventListener('load', sizeTableauVizzes);
+}
+window.addEventListener('resize', debounce(sizeTableauVizzes, 200));
+ 
+ 
 </script>
 </body>
 </html>
