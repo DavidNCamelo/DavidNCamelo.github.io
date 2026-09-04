@@ -28,7 +28,7 @@
   --sans:  'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --mono:  'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
 
-  --max-w: 980px;
+  --max-w: 1240px;
 }
 
 *{ box-sizing: border-box; }
@@ -134,10 +134,10 @@ h1, h2{
 }
 
 .hero-copy h1{
-  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-size: clamp(2rem, 3.4vw, 3.25rem);
   line-height: 1.18;
   letter-spacing: -0.01em;
-  max-width: 18ch;
+  max-width: 30ch;
 }
 
 .hero-lede{
@@ -173,7 +173,6 @@ h1, h2{
 }
 
 .legend-list--plain .tool-icon{
-  color: var(--ink-soft);
   border-color: var(--line);
 }
 
@@ -190,11 +189,13 @@ h1, h2{
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid var(--red);
-  border-radius: 4px;
-  color: var(--red);
 }
-.tool-icon svg{ width: 16px; height: 16px; }
+.tool-icon img{
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
+  display: block;
+}
 
 /* ===========================================================
    Portfolio / Tabs
@@ -280,17 +281,15 @@ h1, h2{
   display: block;
 }
 
-/* Tableau's own <tableau-viz> component sizes itself —
-   it doesn't need (and shouldn't get) a forced aspect-ratio. */
+/* Tableau's own <tableau-viz> component sizes itself via
+   width/height attributes (set by JS in script.js) — not CSS. */
 .embed-frame--tableau{
   aspect-ratio: auto;
   height: 620px;
+  overflow: hidden;
 }
 .embed-frame--tableau tableau-viz{
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
+  display: block;
 }
 
 @media (max-width: 760px){
@@ -393,33 +392,20 @@ h1, h2{
       <p class="legend-title">Toolkit</p>
       <ul class="legend-list">
         <li class="tool">
-          <span class="tool-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="4" y="12" width="3.4" height="8"></rect>
-              <rect x="10.3" y="7" width="3.4" height="13"></rect>
-              <rect x="16.6" y="4" width="3.4" height="16"></rect>
-            </svg>
+          <span class="tool-icon">
+            <img src="https://img.icons8.com/color/200/power-bi.png" alt="Power BI" loading="lazy">
           </span>
           Power BI
         </li>
         <li class="tool">
-          <span class="tool-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="12" y1="4" x2="12" y2="20"></line>
-              <line x1="4" y1="12" x2="20" y2="12"></line>
-              <line x1="7.5" y1="4" x2="7.5" y2="20"></line>
-              <line x1="16.5" y1="4" x2="16.5" y2="20"></line>
-            </svg>
+          <span class="tool-icon">
+            <img src="https://go-skill-icons.vercel.app/api/icons?i=tableau" alt="Tableau" loading="lazy">
           </span>
           Tableau
         </li>
         <li class="tool">
-          <span class="tool-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M4 16a8 8 0 0 1 16 0"></path>
-              <line x1="12" y1="16" x2="15.5" y2="10.5"></line>
-              <circle cx="12" cy="16" r="1"></circle>
-            </svg>
+          <span class="tool-icon">
+            <img src="https://go-skill-icons.vercel.app/api/icons?i=looker" alt="Looker Studio" loading="lazy">
           </span>
           Looker Studio
         </li>
@@ -427,33 +413,20 @@ h1, h2{
       <p class="legend-title legend-title--secondary">Technical</p>
       <ul class="legend-list legend-list--plain">
         <li class="tool">
-          <span class="tool-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-              <ellipse cx="12" cy="6" rx="7" ry="2.6"></ellipse>
-              <path d="M5 6v6c0 1.4 3.1 2.6 7 2.6s7-1.2 7-2.6V6"></path>
-              <path d="M5 12v6c0 1.4 3.1 2.6 7 2.6s7-1.2 7-2.6v-6"></path>
-            </svg>
+          <span class="tool-icon">
+            <img src="https://go-skill-icons.vercel.app/api/icons?i=mysql" alt="SQL" loading="lazy">
           </span>
           SQL
         </li>
         <li class="tool">
-          <span class="tool-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="8 6 3 12 8 18"></polyline>
-              <polyline points="16 6 21 12 16 18"></polyline>
-            </svg>
+          <span class="tool-icon">
+            <img src="https://skillicons.dev/icons?i=py" alt="Python" loading="lazy">
           </span>
           Python
         </li>
         <li class="tool">
-          <span class="tool-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="6" cy="16" r="1"></circle>
-              <circle cx="10.5" cy="9" r="1"></circle>
-              <circle cx="15" cy="13.5" r="1"></circle>
-              <circle cx="18.5" cy="7" r="1"></circle>
-              <path d="M4 20h16" opacity="0"></path>
-            </svg>
+          <span class="tool-icon">
+            <img src="https://skillicons.dev/icons?i=r" alt="R" loading="lazy">
           </span>
           R
         </li>
@@ -621,11 +594,11 @@ h1, h2{
 // Tab switching for the dashboard portfolio (Power BI / Tableau)
 document.addEventListener('DOMContentLoaded', () => {
   const tabButtons = document.querySelectorAll('.tab-btn');
- 
+
   tabButtons.forEach(btn => {
     btn.addEventListener('click', () => {
       const targetId = 'panel-' + btn.dataset.tab;
- 
+
       // Reset all tabs
       tabButtons.forEach(b => {
         b.classList.remove('is-active');
@@ -636,23 +609,23 @@ document.addEventListener('DOMContentLoaded', () => {
         panel.classList.remove('is-active');
         panel.hidden = true;
       });
- 
+
       // Activate selected tab
       btn.classList.add('is-active');
       btn.setAttribute('aria-selected', 'true');
       btn.tabIndex = 0;
- 
+
       const targetPanel = document.getElementById(targetId);
       targetPanel.classList.add('is-active');
       targetPanel.hidden = false;
- 
+
       // Tableau vizzes in a panel that was hidden at load time can end up
       // with a 0×0 size reading; re-measure now that it's visible.
       sizeTableauVizzes();
     });
   });
 });
- 
+
 // ---------------------------------------------------------------
 // Tableau's <tableau-viz> web component does not respond to CSS
 // width/height (percentages, flex, grid) — it only sizes itself
@@ -670,7 +643,7 @@ function sizeTableauVizzes(){
     viz.height = `${Math.round(rect.height)}px`;
   });
 }
- 
+
 function debounce(fn, wait){
   let t;
   return (...args) => {
@@ -678,7 +651,7 @@ function debounce(fn, wait){
     t = setTimeout(() => fn(...args), wait);
   };
 }
- 
+
 // Size once the custom element is registered and ready, then keep
 // it correct across viewport / layout changes.
 if (window.customElements) {
@@ -687,8 +660,8 @@ if (window.customElements) {
   window.addEventListener('load', sizeTableauVizzes);
 }
 window.addEventListener('resize', debounce(sizeTableauVizzes, 200));
- 
- 
+
+
 </script>
 </body>
 </html>
