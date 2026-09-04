@@ -99,19 +99,19 @@ h1, h2{
 
 .langs{
   display: flex;
-  align-items: center;
-  gap: 10px;
+  align-items: baseline;
+  gap: 8px;
+  margin: 0;
   font-family: var(--mono);
   font-size: 0.78rem;
   color: var(--muted);
 }
-.lang-key{ margin-right: 2px; }
-.lang-chip{
-  border: 1px solid var(--line);
-  border-radius: 3px;
-  padding: 2px 6px;
+.lang-key{
+  text-transform: lowercase;
+}
+.lang-values{
   color: var(--ink-soft);
-  background: var(--panel);
+  letter-spacing: 0.02em;
 }
 
 /* ===========================================================
@@ -280,6 +280,23 @@ h1, h2{
   display: block;
 }
 
+/* Tableau's own <tableau-viz> component sizes itself —
+   it doesn't need (and shouldn't get) a forced aspect-ratio. */
+.embed-frame--tableau{
+  aspect-ratio: auto;
+  height: 620px;
+}
+.embed-frame--tableau tableau-viz{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+@media (max-width: 760px){
+  .embed-frame--tableau{ height: 480px; }
+}
+
 .embed-placeholder{
   position: absolute;
   inset: 0;
@@ -338,6 +355,7 @@ h1, h2{
 }
 
 </style>
+<script type="module" src="https://public.tableau.com/javascripts/api/tableau.embedding.3.latest.js"></script>
 </head>
 <body>
 
@@ -345,12 +363,10 @@ h1, h2{
 <header class="site-header">
   <div class="wrap header-row">
     <a class="brand" href="#top">David&nbsp;Camelo</a>
-    <nav class="langs" aria-label="Languages spoken">
-      <span class="lang-key">Languages</span>
-      <span class="lang-chip">ES</span>
-      <span class="lang-chip">EN</span>
-      <span class="lang-chip">PT</span>
-    </nav>
+    <p class="langs" aria-label="Languages spoken">
+      <span class="lang-key">Trilingual</span>
+      <span class="lang-values">ES / EN / PT</span>
+    </p>
   </div>
 </header>
 
@@ -559,13 +575,12 @@ h1, h2{
             region, based on a range of characteristics.
           </p>
         </div>
-        <div class="embed-frame" data-embed="tableau-happiness">
-          <iframe
-            title="Happiness and Socioeconomics Analysis"
-            src="https://public.tableau.com/views/HappinessandmoresocioeconomycsAnalysis/DCFinalProject?:language=es-ES&:showVizHome=no&:embed=true"
-            frameborder="0"
-            allowFullScreen="true"
-            loading="lazy"></iframe>
+        <div class="embed-frame embed-frame--tableau" data-embed="tableau-happiness">
+          <tableau-viz
+            id="viz-happiness"
+            src="https://public.tableau.com/views/HappinessandmoresocioeconomycsAnalysis/DCFinalProject"
+            toolbar="bottom"
+            hide-tabs></tableau-viz>
         </div>
       </article>
 
@@ -577,13 +592,12 @@ h1, h2{
             the behavior behind Marketing Qualified Leads (MQL).
           </p>
         </div>
-        <div class="embed-frame" data-embed="tableau-ecommerce">
-          <iframe
-            title="Lead and Ecommerce Behavior"
-            src="https://public.tableau.com/shared/4Q4RBZ52Z?:showVizHome=no&:embed=true"
-            frameborder="0"
-            allowFullScreen="true"
-            loading="lazy"></iframe>
+        <div class="embed-frame embed-frame--tableau" data-embed="tableau-ecommerce">
+          <tableau-viz
+            id="viz-ecommerce"
+            src="https://public.tableau.com/shared/4Q4RBZ52Z"
+            toolbar="bottom"
+            hide-tabs></tableau-viz>
         </div>
       </article>
 
